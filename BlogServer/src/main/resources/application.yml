@@ -1,0 +1,27 @@
+server:
+  port: 19090
+
+spring:
+  application:
+    name: BlogServerServer
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: ${BlogServer.datasource.driver-class-name}
+    url: jdbc:mysql://${BlogServer.datasource.host}:${BlogServer.datasource.port}/${BlogServer.datasource.database}?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${BlogServer.datasource.username}
+    password: ${BlogServer.datasource.password}
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true  # 开启驼峰命名
+  mapper-locations: classpath:mapper/*.xml # 指定mapper文件位置
+  type-aliases-package: com.su.blogserver.entity # 扫描entity包
+
+blog:
+  jwt:
+#    密钥
+    security: "qW8hO7dI5zZ2tS8dE8eZ7eF2pU7gK3jK"
+#   过期时间: 30分
+    expiration: 1800000
+#   传递时的前缀
+    header: authentication

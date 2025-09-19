@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.su.blog.mapper.UsersMapper">
+
+
+
+<!--    新增用户-->
+    <insert id="insertUsers">
+        insert into users(user_name, user_password, email, create_time, update_time)
+        values (#{userName}, #{userPassword}, #{email}, #{createTime} ,#{updateTime});
+    </insert>
+
+    <!--    根据id更新用户-->
+    <update id="updateUsers">
+        update users
+        <set>
+            <if test="userName != null">user_name = #{userName}</if>
+            <if test="userPassword != null">user_password = #{userPassword}</if>
+            <if test="email != null">email = #{email}</if>
+            <if test="createTime != null">create_time = #{createTime}</if>
+            <if test="updateTime != null">update_time = #{updateTime}</if>
+        </set>
+        where id = #{id};
+    </update>
+
+    <!-- 根据id删除用户-->
+    <delete id="deleteUsersById">
+        delete
+        from users
+        where id = #{id};
+    </delete>
+
+    <!--获取用户列表-->
+    <select id="getUsersList" resultType="com.su.blog.entity.Users">
+        select * from users
+        <where>
+            <if test="id != null">and id = #{id}</if>
+            <if test="userName != null">and user_name = #{userName}</if>
+            <if test="userPassword != null">and user_password = #{userPassword}</if>
+            <if test="email != null">and email = #{email}</if>
+            <if test="createTime != null">and create_time = #{createTime}</if>
+            <if test="updateTime != null">and update_time = #{updateTime}</if>
+        </where>
+    </select>
+    <!--    根据id查询用户-->
+    <select id="getUsersById" resultType="com.su.blog.entity.Users">
+        select *
+        from users
+        where id = #{id}
+    </select>
+    <select id="getUsersByName" resultType="com.su.blog.entity.Users">
+        select * from users where user_name = #{userName}
+    </select>
+
+
+</mapper>
