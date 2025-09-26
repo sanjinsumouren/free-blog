@@ -15,7 +15,6 @@ public class JwtUtil {
      * 生成jwt
      * 使用Hs256算法, 私匙使用固定秘钥
      *
-     * @return
      */
     //生成Jwt
     public static String createJwt(String key, long expirationTime, Map<String, Object> claims) {
@@ -30,7 +29,6 @@ public class JwtUtil {
                         .setClaims(claims)
                         .signWith(signatureAlgorithm, key.getBytes(StandardCharsets.UTF_8))
                         .setExpiration(expiration);
-
         return jwtBuilder.compact();
     }
 

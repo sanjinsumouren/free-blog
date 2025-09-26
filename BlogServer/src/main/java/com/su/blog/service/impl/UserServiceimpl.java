@@ -2,7 +2,6 @@ package com.su.blog.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.su.blog.constant.ExceptionCode;
 import com.su.blog.dto.UsersDto;
 import com.su.blog.entity.Users;
 import com.su.blog.exception.BaseException;
@@ -52,7 +51,7 @@ public class UserServiceimpl implements UserService {
         usersDto.setUserName(users.getUserName());
         PageResult list = list(usersDto);
         if (list.getTotal() > 0) {
-            throw new BaseException(ExceptionCode.User_EXIST, "用户已存在,请换一个用户名");
+            throw new BaseException("用户已存在,请换一个用户名");
         }
 
         String userPassword = users.getUserPassword();
@@ -82,11 +81,11 @@ public class UserServiceimpl implements UserService {
         Users user = userMapper.getUsersByName(users.getUserName());
         String s = DigestUtils.md5DigestAsHex(users.getUserPassword().getBytes());
         if(!user.getUserPassword().equals(s)){
-            throw new BaseException(ExceptionCode.User_PASSWORD_ERROR, "密码错误");
+            throw new BaseException( "密码错误");
         }
         //生成token
         Map<String, Object> claims = new HashMap<>();
-        claims.put("UserId", users.getId());
+        claims.put("UserId", user.getId());
         String token = JwtUtil.createJwt(jwtProperties.getSecurity(), jwtProperties.getExpiration(), claims);
         return new UserLoginVo(user.getId(), user.getUserName(), token);
     }

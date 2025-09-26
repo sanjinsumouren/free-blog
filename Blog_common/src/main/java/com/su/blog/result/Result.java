@@ -27,7 +27,7 @@ public class Result<T> implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     /**
-     * 响应码，用于标识请求处理的结果状态
+     * 响应码，用于标识请求处理的结果状态,200为成功0为失败
      */
     private Integer code;
 
@@ -56,7 +56,7 @@ public class Result<T> implements Serializable {
     /**
      * error
      */
-    public static <T> Result<T> error(Integer code, String msg) {
-        return new Result<T>(code, msg, null);
+    public static <T> Result<T> error(String msg) {
+        return new Result<T>(0, msg, null);
     }
 }

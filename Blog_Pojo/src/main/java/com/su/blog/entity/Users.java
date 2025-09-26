@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -15,7 +14,7 @@ public class Users implements Serializable {
 
     private static final long serialVersionUID = 1L;
     // 用户id
-    private Integer id;
+    private Long id;
     // 用户名
     private String userName;
     // 密码
@@ -27,6 +26,6 @@ public class Users implements Serializable {
     /**
      * 更新时间
      */
-    private Date updateTime;
+    private LocalDateTime updateTime;
 
 }

@@ -13,13 +13,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Result<?> handleUnknownException(Exception e) {
         log.error("未知异常：", e);
-        return Result.error(500, "服务器内部异常,请联系管理员");
+        return Result.error(e.getMessage());
     }
 
     @ExceptionHandler(BaseException.class)
     public Result<?> error(BaseException e) {
         log.error("异常信息：{}", e.getMessage());
-        return Result.error(e.getCode(), e.getMessage());
+        return Result.error(e.getMessage());
     }
 
 }

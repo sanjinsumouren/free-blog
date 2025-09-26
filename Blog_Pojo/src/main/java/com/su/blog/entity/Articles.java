@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serial;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.io.Serializable;
 
@@ -23,7 +24,7 @@ public class Articles implements Serializable {
     /**
      * 文章id
      */
-    private Integer articleId;
+    private Long articleId;
     /**
      * 标题
      */
@@ -35,7 +36,7 @@ public class Articles implements Serializable {
     /**
      * 创建时间
      */
-    private Date createTime;
+    private LocalDateTime createTime;
     /**
      * 作者
      */
@@ -43,11 +44,11 @@ public class Articles implements Serializable {
     /**
      * 分类类别
      */
-    private String categoryId;
+    private Long categoryId;
     /**
      * 更新时间
      */
-    private Date updateTime;
+    private LocalDateTime updateTime;
 
 
 }

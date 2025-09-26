@@ -6,22 +6,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!--
-        父项目配置，继承Spring Boot提供的默认配置。
-        groupId: 父项目的组织ID
-        artifactId: 父项目的构件ID
-        version: 父项目的版本号
-        relativePath: 相对路径，空值表示从远程仓库查找父项目
-    -->
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.5</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.su</groupId>
+        <artifactId>FreeBlog</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <!-- 项目的基本信息 -->
-    <groupId>com.su</groupId>         <!-- 组织ID -->
     <artifactId>BlogServer</artifactId> <!-- 项目构件ID -->
     <version>0.0.1-SNAPSHOT</version>   <!-- 项目版本 -->
     <name>BlogServer</name>             <!-- 项目名称 -->
@@ -60,7 +51,6 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>3.0.5</version>
         </dependency>
 
         <!-- MySQL驱动程序，运行时依赖 -->
@@ -74,29 +64,26 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
         </dependency>
 
-        <!-- Spring Boot测试框架 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+        <!--        &lt;!&ndash; Spring Boot测试框架 &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-test</artifactId>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
         <!-- MyBatis测试支持库 -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter-test</artifactId>
-            <version>3.0.5</version>
-            <scope>test</scope>
+
         </dependency>
 
         <!-- PageHelper -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>2.1.0</version>
         </dependency>
         <!--  aop-->
         <dependency>

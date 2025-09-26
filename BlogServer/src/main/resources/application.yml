@@ -17,6 +17,15 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml # 指定mapper文件位置
   type-aliases-package: com.su.blogserver.entity # 扫描entity包
 
+logging:
+  level:
+    com:
+      su:
+        blog:
+          mapper: debug
+          service: info
+          controller: info
+
 blog:
   jwt:
 #    密钥
@@ -24,4 +33,4 @@ blog:
 #   过期时间: 30分
     expiration: 1800000
 #   传递时的前缀
-    header: authentication
+    header: Authorization
